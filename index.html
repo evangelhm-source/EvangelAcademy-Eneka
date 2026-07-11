@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evangel Academy Result Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<header>
+<img src="School Logo.png" height='200'/>
+<div>
+<h1>EVANGEL ACADEMY</h1>
+<p>Nursery, Primary & Secondary School</p>
+<p>Rumuesara, Eneka, Rivers State</p>
+<h3>Online Result Portal</h3>
+</div>
+</header>
+
+<section class="search-box">
+<h2>Check Student Result</h2>
+
+<label for="studentId">Registration Number</label>
+<input id="studentId" type="text" placeholder="e.g. FIRSTNAME.J3">
+
+<label for="session">Academic Session</label>
+<select id="session">
+<option value="">Select Session</option>
+<option>2025/2026</option>
+<option>2026/2027</option>
+</select>
+
+<label for="term">Term</label>
+<select id="term">
+<option value="">Select Term</option>
+<option value="First">First Term</option>
+<option value="Second">Second Term</option>
+<option value="Third">Third Term</option>
+</select>
+
+<button onclick="checkResults()">Check Result</button>
+</section>
+
+<section id="errorMsg" class="hidden">
+<p>Student record not found.</p>
+</section>
+
+<section id="resultCard" class="hidden">
+<div class="report-header">
+<img src="images/logo.png" class="report-logo" alt="Logo">
+<div>
+<h2>Terminal Report Sheet</h2>
+</div>
+</div>
+
+<div class="profile">
+<img id="studentPhoto" src="images/student.png" alt="Student">
+
+<div class="details">
+<p><strong>Name:</strong> <span id="resName"></span></p>
+<p><strong>Registration No:</strong> <span id="resId"></span></p>
+<p><strong>Class:</strong> <span id="resClass"></span></p>
+<p><strong>Session:</strong> <span id="resSession"></span></p>
+<p><strong>Term:</strong> <span id="resTerm"></span></p>
+<p><strong>Position:</strong> <span id="position"></span></p>
+<p><strong>Attendance:</strong> <span id="attendance"></span></p>
+</div>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>S/N</th>
+<th>Subject</th>
+<th>Score</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody id="tableBody"></tbody>
+<tfoot>
+<tr><td colspan="2">Total</td><td colspan="2" id="totalScore"></td></tr>
+<tr><td colspan="2">Average</td><td colspan="2" id="averageScore"></td></tr>
+<tr><td colspan="2">Overall Grade</td><td colspan="2" id="overallGrade"></td></tr>
+<tr><td colspan="2">Status</td><td colspan="2" id="status"></td></tr>
+</tfoot>
+</table>
+
+<div class="remarks">
+<p><strong>Teacher's Remark:</strong> <span id="teacherRemark"></span></p>
+<p><strong>Principal's Remark:</strong> <span id="principalRemark"></span></p>
+<p><strong>Date Issued:</strong> <span id="dateIssued"></span></p>
+<p><strong>Next Term Begins:</strong> <span id="nextTerm"></span></p>
+</div>
+
+<div class="signatures">
+<div><hr><p>Class Teacher</p></div>
+<div><hr><p>Principal</p></div>
+</div>
+
+<div class="print-area">
+<button onclick="window.print()">Print Result</button>
+</div>
+
+</section>
+
+<script src="script.js"></script>
+</div>
+</body>
+</html>
