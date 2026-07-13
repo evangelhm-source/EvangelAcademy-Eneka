@@ -2,9 +2,9 @@ const studentDatabase = {
   "PASCAL.J3": {
     id:"EVAJS301",
     name:"GABRIEL PASCAL",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"9th",
     attendance:"92/116",
     dateIssued:"17 July 2026",
@@ -31,9 +31,9 @@ const studentDatabase = {
   "KINGSLEY.J3": {
     id:"EVAJS302",
     name:"ONYEKACHI KINGSLEY",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"10th",
     attendance:"106/116",
     dateIssued:"17 July 2026",
@@ -60,9 +60,9 @@ const studentDatabase = {
   "EMMANUEL.J3": {
     id:"EVAJS303",
     name:"SAMUEL EMMANUEL",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"12th",
     attendance:"112/116",
     dateIssued:"17 July 2026",
@@ -88,9 +88,9 @@ const studentDatabase = {
   "HETTY.J3": {
     id:"EVAJS304",
     name:"TAMUNOBELEMA HETTY",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"5th",
     attendance:"116/116",
     dateIssued:"17 July 2026",
@@ -116,9 +116,9 @@ const studentDatabase = {
   "PROSPER.J3": {
     id:"EVAJS305",
     name:"JOE PROSPER",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"3rd",
     attendance:"112/116",
     dateIssued:"17 July 2026",
@@ -144,9 +144,9 @@ const studentDatabase = {
   "DELIGHT.J3": {
     id:"EVAJS306",
     name:"AKOTA DELIGHT",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"6th",
     attendance:"116/116",
     dateIssued:"17 July 2026",
@@ -172,9 +172,9 @@ const studentDatabase = {
   "PRECIOUS.J3": {
     id:"EVAJS307",
     name:"AWAJI-IGBANA PRECIOUS",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"13th",
     attendance:"116/116",
     dateIssued:"17 July 2026",
@@ -200,9 +200,9 @@ const studentDatabase = {
   "FULFILLMENT.J3": {
     id:"EVAJS308",
     name:"GIFT GOD'S FULFILLMENT",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"7th",
     attendance:"116/116",
     dateIssued:"17 July 2026",
@@ -228,9 +228,9 @@ const studentDatabase = {
   "GABRIELLA.J3": {
     id:"EVAJS309",
     name:"ABALI GABRIELLA",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"1st",
     attendance:"116/116",
     dateIssued:"17 July 2026",
@@ -256,9 +256,9 @@ const studentDatabase = {
   "MARVELOUS.J3": {
     id:"EVAJS3010",
     name:"EZE MARVELOUS",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"11th",
     attendance:"114/116",
     dateIssued:"17 July 2026",
@@ -284,9 +284,9 @@ const studentDatabase = {
   "SHALLOM.J3": {
     id:"EVAJS311",
     name:"UDEME SHALLOM",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"8th",
     attendance:"112/116",
     dateIssued:"17 July 2026",
@@ -312,9 +312,9 @@ const studentDatabase = {
   "FLOURISH.J3": {
     id:"EVAJS312",
     name:"EDEKI FLOURISH",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"2nd",
     attendance:"116/116",
     dateIssued:"17 July 2026",
@@ -340,9 +340,9 @@ const studentDatabase = {
   "GREATNESS.J3": {
     id:"EVAJS313",
     name:"EWURUM GREATNESS",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"4th",
     attendance:"116/116",
     dateIssued:"17 July 2026",
@@ -368,9 +368,9 @@ const studentDatabase = {
   "FIRSTNAME.J3": {
     id:"EVAJS313",
     name:"SURNAME FIRST NAME",
-    class:"JS3",
+    class:"JSS3",
     session:"2025/2026",
-    photo:"images/john.jpg",
+    photo:"passport.png",
     position:"0th",
     attendance:"116/116",
     dateIssued:"17 July 2026",
@@ -407,6 +407,9 @@ function grade(score){
 function checkResults(){
   const id=document.getElementById("studentId").value.trim().toUpperCase();
   const session=document.getElementById("session").value;
+  
+  const studentClass = document.getElementById("class").value;
+  
   const term=document.getElementById("term").value;
 
   const resultCard=document.getElementById("resultCard");
@@ -417,17 +420,36 @@ function checkResults(){
   error.classList.add("hidden");
   body.innerHTML="";
 
-  if(!id||!session||!term){
+if (!id || !session || !studentClass || !term) {
     alert("Please complete all fields.");
     return;
-  }
+}
 
-  const student=studentDatabase[id];
-  if(!student || !student.results[term]){
+ const student = studentDatabase[id];
+
+if (!student) {
     error.classList.remove("hidden");
+    error.textContent = "Student record not found.";
     return;
-  }
+}
 
+if (student.session !== session) {
+    error.classList.remove("hidden");
+    error.textContent = "No result found for the selected academic session.";
+    return;
+}
+
+if (student.class !== studentClass) {
+    error.classList.remove("hidden");
+    error.textContent = "Registration number and class do not match.";
+    return;
+}
+
+if (!student.results[term]) {
+    error.classList.remove("hidden");
+    error.textContent = "Result for the selected term is not available.";
+    return;
+}
   document.getElementById("studentPhoto").src=student.photo;
   document.getElementById("resName").textContent=student.name;
   document.getElementById("resId").textContent=student.id;
@@ -463,5 +485,4 @@ document.getElementById("principalRemark").textContent = pRemark;
 
 resultCard.classList.remove("hidden");
 }
-
-    
+ 
