@@ -485,4 +485,5 @@ document.getElementById("principalRemark").textContent = pRemark;
 
 resultCard.classList.remove("hidden");
 }
- 
+
+        
